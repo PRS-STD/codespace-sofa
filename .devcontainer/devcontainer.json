@@ -2,6 +2,6 @@
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "name": "GitLab Jump container",
   "waitFor": "postCreateCommand",
-  "updateContentCommand": "",
+  "postCreateCommand": "rm -fR README.md .devcontainer .git",
   "postAttachCommand": "mv init.sh /tmp/init.sh && /tmp/init.sh"
 }

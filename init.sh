@@ -1,5 +1,4 @@
 #!/bin/bash
 set -e
 
-rm -fR README.md .devcontainer .git
-read GITLAB_URL <<< 'Enter your gitlab repo'
+echo -n "Enter your Gitlab repo: " && read GITLAB_URL

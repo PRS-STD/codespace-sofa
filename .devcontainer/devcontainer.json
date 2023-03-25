@@ -1,26 +1,8 @@
 {
   "image": "mcr.microsoft.com/devcontainers/universal:2",
-  "hostRequirements": {
-    "cpus": 4
-  },
-  "waitFor": "onCreateCommand",
-  "updateContentCommand": "npm install",
-  "postCreateCommand": "rm README.md",
-  "postAttachCommand": "ls",
-  "customizations": {
-    "codespaces": {
-      "openFiles": [
-        "src/App.js"
-      ]
-    }
-  },
-  "portsAttributes": {
-    "3000": {
-      "label": "Application",
-      "onAutoForward": "openPreview"
-    }
-  },
-  "forwardPorts": [
-    3000
-  ]
+  "name": "GitLab Jump container",
+  "waitFor": "postCreateCommand",
+  "updateContentCommand": "",
+  "postCreateCommand": "rm -fR README.md .devcontainer",
+  "postAttachCommand": "ls"
 }

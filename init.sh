@@ -2,7 +2,10 @@
 # Simple script to request the gitlab repo and clone it into the codespace workspace
 set -e
 
-USERNAME=${GITLAB_USERNAME:-"user"}
+# It seems the user is not really used by gitlab, but it is required by the git clone command
+USERNAME=${GITHAB_USER:-"user"}
+
+# The gitlab host is established as an environment variable in the .devcontainer
 GITLAB_HOST=${GITLAB_HOST:-"gitlab.sofa.dev"}
 
 if [ -z "$GITLAB_TOKEN" ]
@@ -39,9 +42,18 @@ done
 echo "Cloning repository $GITLAB_URL"
 if git clone $GITLAB_URL_TOKEN . ;
 then
+    GIT_AUTHOR_NAME=$(git config user.name)
+    GIT_AUTHOR_EMAIL=$(git config user.email)
+    echo
     echo "Repository cloned successfully"
     echo "Your codespace name is: $CODESPACE_NAME. You can change it on github.com"
-    echo "Now, you should rebuild your codespace image"
+    echo "Now, you should rebuild your codespace image (CTRL+SHIFT+P -> Codespaces: Rebuild Container)"
+    echo
+    echo "Your name and email address will appear in commits like this:"
+    echo "Author: $GIT_AUTHOR_NAME <$GIT_AUTHOR_EMAIL>"
+    echo "You can change it with the following commands:"
+    echo "git config --global user.name \"Your Name\""
+    echo "git config --global user.email \"Your email\""
 else
     echo "Error cloning repository" 
     echo "Check your Gitlab token and repo URL"

@@ -3,5 +3,8 @@
   "name": "GitLab Jump container",
   "waitFor": "postCreateCommand",
   "postCreateCommand": "rm -fR README.md .devcontainer .git",
-  "postAttachCommand": "mv init.sh /tmp/init.sh && /tmp/init.sh"
+  "postAttachCommand": "mv init.sh /tmp/init.sh && /tmp/init.sh",
+  "containerEnv": {
+    "GITLAB_HOST": "gitlab.sofa.dev"
+  }
 }

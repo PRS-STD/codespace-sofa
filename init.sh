@@ -42,10 +42,10 @@ done
 echo "Cloning repository $GITLAB_URL"
 if git clone $GITLAB_URL_TOKEN . ;
 then
-    git config --global user.name "${ECB_NAME:-$GIT_COMMITTER_NAME}"
-    git config --global user.email "${ECB_EMAIL:-$GIT_COMMITTER_EMAIL}"
-    GIT_AUTHOR_NAME=$(git config user.name)
-    GIT_AUTHOR_EMAIL=$(git config user.email)
+    GIT_AUTHOR_NAME=${ECB_NAME:-$(git config user.name)}
+    GIT_AUTHOR_EMAIL=${ECB_EMAIL:-$(git config user.email)}
+    git config --global user.name "${GIT_COMMITTER_NAME}"
+    git config --global user.email "${GIT_COMMITTER_EMAIL}"
     echo
     echo "Repository cloned successfully"
     echo "Your codespace name is: $CODESPACE_NAME. You can change it on github.com"

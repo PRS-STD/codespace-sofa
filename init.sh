@@ -57,7 +57,7 @@ then
     echo "git config --global user.name \"Your Name\""
     echo "git config --global user.email \"Your email\""
 else
-    echo "Error cloning repository" 
+    echo "Error cloning repository: git clone $GITLAB_URL_TOKEN ." 
     echo "Double check the instructions at https://github.com/PRS-STD/codespace-sofa#readme"
     exit 1
 fi

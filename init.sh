@@ -3,7 +3,7 @@
 set -e
 
 # It seems the user is not really used by gitlab, but it is required by the git clone command
-USERNAME=${GITHAB_USER:-"user"}
+USER=${GITHUB_USER:-"user"}
 
 # The gitlab host is established as an environment variable in the .devcontainer
 GITLAB_HOST=${GITLAB_HOST:-"gitlab.sofa.dev"}
@@ -24,13 +24,13 @@ do
     if [[ $GITLAB_REPO =~ $REGEXP ]]
     then
         GITLAB_URL="https://${GITLAB_HOST}/${BASH_REMATCH[1]}"
-        GITLAB_URL_TOKEN="https://$USERNAME:$GITLAB_TOKEN@${GITLAB_HOST}/${BASH_REMATCH[1]}"
+        GITLAB_URL_TOKEN="https://$USER:$GITLAB_TOKEN@${GITLAB_HOST}/${BASH_REMATCH[1]}"
         break
     fi
     if [[ $GITLAB_REPO =~ ^(.*)/(.*)$ ]]
     then
         GITLAB_URL="https://${GITLAB_HOST}/$GITLAB_REPO"
-        GITLAB_URL_TOKEN="https://$USERNAME:$GITLAB_TOKEN@${GITLAB_HOST}/$GITLAB_REPO"
+        GITLAB_URL_TOKEN="https://$USER:$GITLAB_TOKEN@${GITLAB_HOST}/$GITLAB_REPO"
         break
     fi
 
@@ -42,6 +42,8 @@ done
 echo "Cloning repository $GITLAB_URL"
 if git clone $GITLAB_URL_TOKEN . ;
 then
+    git config --global user.name "${ECB_NAME:-GIT_COMMITTER_NAME}"
+    git config --global user.email "${ECB_EMAIL:-GIT_COMMITTER_EMAIL}"
     GIT_AUTHOR_NAME=$(git config user.name)
     GIT_AUTHOR_EMAIL=$(git config user.email)
     echo
@@ -56,6 +58,6 @@ then
     echo "git config --global user.email \"Your email\""
 else
     echo "Error cloning repository" 
-    echo "Check your Gitlab token and repo URL"
+    echo "Double check the instructions at https://github.com/PRS-STD/codespace-sofa#readme"
     exit 1
 fi

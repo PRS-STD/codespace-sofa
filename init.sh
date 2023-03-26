@@ -8,6 +8,10 @@ USER=${GITHUB_USER:-"user"}
 # The gitlab host is established as an environment variable in the .devcontainer
 GITLAB_HOST=${GITLAB_HOST:-"gitlab.sofa.dev"}
 
+echo 
+echo "Welcome to your new SOFA Codespace!"
+echo
+
 if [ -z "$GITLAB_TOKEN" ]
 then
     echo "You did not define a secret for your gitlab token (GITLAB_TOKEN). Check the README to speed things up in the future."
@@ -18,7 +22,7 @@ fi
 shopt -s nocasematch
 while [ -z "$GITLAB_URL" ]
 do
-    read -p "Enter your Gitlab repo: " GITLAB_REPO
+    read -p "Enter your SOFA repo: " GITLAB_REPO
     echo
     REGEXP="^https://${GITLAB_HOST}/([^.]*)(.git)?$"
     if [[ $GITLAB_REPO =~ $REGEXP ]]

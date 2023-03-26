@@ -7,7 +7,8 @@ Before using this codespace you should have:
 - A secret in your GitHub profile with the name GITLAB_TOKEN and the value of your personal access token. For this, go to your github profile settings, then `Codespaces > Codespaces secrets > New secret`. Please, make sure to give acceess to this repository (PRS-STD/codespace-sofa). ![Adding a secret](./adding_secret.png)
 - Another secret in your github profile with the name `ECB_EMAIL` with your ECB email address. This is used to set yout email address in GIT commits.
 - Another secret with the name `ECB_NAME` with your full name. This is used to set your name in GIT commits. If this is not provided, the one in your github account will be used.
-(mind that commits in git appear with author: `your name` <`your ECB email address`>"
+
+Mind that commits in git will appear with author: `your name` <`your ECB email address`>".
 
 ## Usage
 Once the codespace is ready, it will ask you the location of your SOFA repository. You can use two different notations:

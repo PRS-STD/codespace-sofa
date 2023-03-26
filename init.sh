@@ -51,11 +51,10 @@ then
     echo "Your codespace name is: $CODESPACE_NAME. You can change it on github.com"
     echo "Now, you should rebuild your codespace image (CTRL+SHIFT+P -> Codespaces: Rebuild Container)"
     echo
-    echo "Your name and email address will appear in commits like this:"
-    echo "Author: $GIT_AUTHOR_NAME <$GIT_AUTHOR_EMAIL>"
+    echo "Your name and email will appear in commits like this: ${GIT_AUTHOR_NAME} <${GIT_AUTHOR_EMAIL}>"
     echo "You can change it with the following commands:"
-    echo "git config --global user.name \"Your Name\""
-    echo "git config --global user.email \"Your email\""
+    echo "   git config --global user.name \"Your Name\""
+    echo "   git config --global user.email \"Your email\""
 else
     echo "Error cloning repository: git clone $GITLAB_URL_TOKEN ." 
     echo "Double check the instructions at https://github.com/PRS-STD/codespace-sofa#readme"

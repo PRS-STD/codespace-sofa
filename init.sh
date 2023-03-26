@@ -42,8 +42,8 @@ done
 echo "Cloning repository $GITLAB_URL"
 if git clone $GITLAB_URL_TOKEN . ;
 then
-    git config --global user.name "${ECB_NAME:-GIT_COMMITTER_NAME}"
-    git config --global user.email "${ECB_EMAIL:-GIT_COMMITTER_EMAIL}"
+    git config --global user.name "${ECB_NAME:-$GIT_COMMITTER_NAME}"
+    git config --global user.email "${ECB_EMAIL:-$GIT_COMMITTER_EMAIL}"
     GIT_AUTHOR_NAME=$(git config user.name)
     GIT_AUTHOR_EMAIL=$(git config user.email)
     echo

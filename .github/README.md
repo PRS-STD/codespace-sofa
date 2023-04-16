@@ -17,8 +17,7 @@ Once the codespace is ready, it will ask you the location of your SOFA repositor
 
 After providing this information, your repository will be cloned in your codespace. For your codespace to use the container configuration in your SOFA repository, you will need to rebuild the container. You can do this in VS Code using the command *Rebuild container*: `CTRL+SHIFT+P -> Codespaces: Rebuild Container`.
 
-After this, you are ready to go! One more hint: it is convenient to give a name to your codespace. You can do this in VS Code using the command *Rename codespace*: `CTRL+SHIFT+P -> Codespaces: Rename Codespace`. Also, you can do it in [GitHub codespaces](https://github.com/codespaces). 
-
+After this, you are ready to go! One more hint: it is convenient to give a name to your codespace. You can do this in [GitHub codespaces](https://github.com/codespaces) or in VS Code using the Remote Explorer. For more details, check [renaming a codespace](https://docs.github.com/en/codespaces/customizing-your-codespace/renaming-a-codespace).
 
 ## Troubleshooting
 *TODO*
